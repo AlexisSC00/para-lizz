@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños, Lizz!</title>
+    <style>
+        /* --- DISEÑO GENERAL --- */
+        :root {
+            --rosa-principal: #ff758f;
+            --rosa-suave: #ffccd5;
+            --crema-pastel: #fff3e0;
+            --bizcocho: #f4a261;
+            --fondo: linear-gradient(135deg, #ffe5ec 0%, #ffc1cc 100%);
+            --texto: #4a4a4a;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: var(--fondo);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--texto);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .tarjeta {
+            background: rgba(255, 255, 255, 0.96);
+            padding: 35px 25px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(235, 104, 130, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            z-index: 10;
+            position: relative;
+        }
+
+        h1 {
+            color: var(--rosa-principal);
+            font-size: 2.3rem;
+            margin: 0 0 5px 0;
+            font-weight: 700;
+        }
+
+        .dedicado {
+            font-size: 1.2rem;
+            color: #7d7d7d;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* --- PASTEL EN CSS --- */
+        .pastel-contenedor {
+            width: 140px;
+            height: 110px;
+            position: relative;
+            margin: 0 auto 25px auto;
+        }
+
+        .piso-pastel {
+            position: absolute;
+            bottom: 0;
+            width: 130px;
+            height: 55px;
+            background-color: var(--bizcocho);
+            border-radius: 12px 12px 0 0;
+            left: 5px;
+            box-shadow: inset 0 6px 0 #e76f51;
+        }
+
+        .crema-goteo {
+            position: absolute;
+            width: 100%;
+            height: 12px;
+            background: var(--crema-pastel);
+            border-radius: 0 0 6px 6px;
+            top: 0;
+        }
+
+        .vela {
+            position: absolute;
+            bottom: 55px;
+            left: 66px;
+            width: 8px;
+            height: 25px;
+            background: linear-gradient(to right, #70d6ff, #ff758f);
+            border-radius: 3px 3px 0 0;
+        }
+
+        .flama {
+            position: absolute;
+            bottom: 80px;
+            left: 66px;
+            width: 8px;
+            height: 12px;
+            background-color: #ffb703;
+            border-radius: 50% 50% 20% 20%;
+            box-shadow: 0 0 12px #ffb703, 0 0 20px #fb8500;
+            animation: parpadeo 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes parpadeo {
+            0% { transform: scale(1) rotate(-2deg); }
+            100% { transform: scale(1.15) translateY(-2px) rotate(2deg); background-color: #fb8500; }
+        }
+
+        /* --- BOTÓN --- */
+        .boton {
+            background-color: var(--rosa-principal);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255, 117, 143, 0.4);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .boton:hover {
+            background-color: #ff4d6d;
+            transform: translateY(-2px);
+        }
+
+        /* --- CARTA OCULTA Y BAILARINES --- */
+        .carta-oculta {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 20px;
+            background: #fff5f6;
+            border-radius: 16px;
+            border: 1px dashed var(--rosa-suave);
+        }
+
+        .carta-oculta.mostrar {
+            opacity: 1;
+            max-height: 600px;
+            padding: 20px 15px;
+        }
+
+        .carta-oculta p {
+            font-style: italic;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Zona de los GIFs animados */
+        .dance-floor {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .dance-floor img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        /* --- GLOBOS Y CONFETI --- */
+        .confeti {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            animation: caer linear forwards;
+            z-index: 1;
+        }
+
+        @keyframes caer {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+        }
+
+        .globo {
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            animation: flotar vertical linear infinite;
+            bottom: -50px;
+            opacity: 0.6;
+            z-index: 2;
+        }
+
+        @keyframes flotar {
+            0% { transform: translateY(0); opacity: 0.7; }
+            100% { transform: translateY(-120vh); opacity: 0; }
+        }
+
+        #reproductor { display: none; }
+    </style>
+</head>
+<body>
+
+    <!-- REPRODUCTOR CON "24K MAGIC" DE BRUNO MARS -->
+    <iframe id="reproductor" src="https://www.youtube.com/embed/UqyT8IEBkvY?enablejsapi=1" allow="autoplay"></iframe>
+
+    <div class="tarjeta">
+        <h1>¡Feliz Cumpleaños! 🎉</h1>
+        <div class="dedicado">✨ Para: Lizz ✨</div>
+
+        <!-- Pastel -->
+        <div class="pastel-contenedor">
+            <div class="flama"></div>
+            <div class="vela"></div>
+            <div class="piso-pastel">
+                <div class="crema-goteo"></div>
+            </div>
+        </div>
+        
+        <button class="boton" id="btnSorpresa">¡Haz clic aquí, Lizz! 💌</button>
+
+        <!-- Mensaje Sorpresa -->
+        <div class="carta-oculta" id="mensajeSecreto">
+            <p>"¡Feliz cumpleaños, Lizz! Que este nuevo año de vida venga cargado de muchísima felicidad, éxitos y momentos increíbles. Eres una amiga espectacular y te mereces lo mejor del mundo hoy y siempre. ¡A celebrar en grande con Bruno Mars! Te quiero un montón." ❤️🎂</p>
+            
+            <!-- ¡Aquí aparecen los bailarines estrella cuando abre la carta! -->
+            <div class="dance-floor">
+                <!-- Ositos bailando -->
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIyeG5tMXZndjNndmoxZnd5eXpzcW90bXp6Z3ZhcW5wZnF6Y2h4ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/du3J3cXyzhj75IOgvA/giphy.gif" alt="Ositos bailando">
+                <!-- Capibara fiestero -->
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbms5NzRndWpydGpscmw3ZzZwdXl0am1wczhuY29oOTZ6eW85Nml3cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/S60bU6b0T2gB2xP9w6/giphy.gif" alt="Capibara">
+                <!-- Osito bailando pop -->
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZhcXhhaGNwYW5hbG9wM20waThnNmx0cWc1cGttdmR2b3lyNnYwMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/13CoXDiaCcC9Ak/giphy.gif" alt="Osito pop">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const boton = document.getElementById('btnSorpresa');
+        const mensaje = document.getElementById('mensajeSecreto');
+        const musica = document.getElementById('reproductor');
+
+        boton.addEventListener('click', () => {
+            mensaje.classList.toggle('mostrar');
+
+            if (mensaje.classList.contains('mostrar')) {
+                boton.textContent = '¡A celebrar, Lizz! 🕺✨';
+                crearConfeti();
+                crearGlobos();
+                musica.src += "&autoplay=1";
+            } else {
+                boton.textContent = '¡Haz clic aquí, Lizz! 💌';
+            }
+        });
+
+        function crearConfeti() {
+            const colores = ['#ff758f', '#ffb3c1', '#70d6ff', '#ffd166', '#1dd1a1'];
+            for (let i = 0; i < 80; i++) {
+                const confeti = document.createElement('div');
+                confeti.classList.add('confeti');
+                confeti.style.left = Math.random() * 100 + 'vw';
+                confeti.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
+                
+                const tamano = Math.random() * 8 + 6;
+                confeti.style.width = `${tamano}px`;
+                confeti.style.height = `${tamano}px`;
+                if(Math.random() > 0.4) confeti.style.borderRadius = '50%';
+                
+                const duracion = Math.random() * 2.5 + 2;
+                confeti.style.animationDuration = `${duracion}s`;
+                
+                document.body.appendChild(confeti);
+                setTimeout(() => confeti.remove(), duracion * 1000);
+            }
+        }
+
+        function crearGlobos() {
+            const colores = ['#ffccd5', '#70d6ff', '#ffca3a', '#8ac926', '#ff595e'];
+            for (let i = 0; i < 15; i++) {
+                const globo = document.createElement('div');
+                globo.classList.add('globo');
+                globo.style.left = Math.random() * 90 + 'vw';
+                globo.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
+                
+                const duracion = Math.random() * 4 + 4;
+                globo.style.animationDuration = `${duracion}s`;
+                globo.style.animationDelay = `${Math.random() * 2}s`;
+                
+                document.body.appendChild(globo);
+                setTimeout(() => globo.remove(), (duracion + 2) * 1000);
+            }
+        }
+    </script>
+</body>
+</html>
