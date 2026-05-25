@@ -15,12 +15,10 @@
             margin: 0;
             padding: 20px 10px;
             min-height: 100vh;
-            background-color: #ffb3c1;
-            /* Fondo rosa pastel con degradado suave de fiesta */
-            background-image: radial-gradient(circle at 20% 20%, #ffccd5 25%, transparent 25%),
-                              radial-gradient(circle at 80% 80%, #ffccd5 25%, transparent 25%),
-                              linear-gradient(135deg, #ffccd5 0%, #ffb3c1 100%);
-            background-size: 60px 60px, 60px 60px, 100% 100%;
+            background-color: #ffccd5;
+            background-image: url('https://img.freepik.com/vector-premium/patron-sin-fisuras-lindos-capibaras-dibujos-animados-globos-confeti-sobre-fondo-rosa_764382-386.jpg');
+            background-size: 320px;
+            background-repeat: repeat;
             font-family: 'Quicksand', sans-serif;
             display: flex;
             justify-content: center;
@@ -29,41 +27,30 @@
             position: relative;
         }
 
-        /* --- GUIRNALDA DE LUCES NATIVA --- */
-        .luces-top {
+        body::before {
+            content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 30px;
-            background: radial-gradient(circle at 10% 10px, #ffbe0b 8px, transparent 10px),
-                        radial-gradient(circle at 30% 10px, #ff007f 8px, transparent 10px),
-                        radial-gradient(circle at 50% 10px, #3a86ff 8px, transparent 10px),
-                        radial-gradient(circle at 70% 10px, #06d6a0 8px, transparent 10px),
-                        radial-gradient(circle at 90% 10px, #ffbe0b 8px, transparent 10px);
-            background-size: 100% 100%;
-            border-bottom: 2px dashed rgba(0,0,0,0.1);
-            z-index: 5;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 204, 213, 0.2);
+            z-index: 1;
+            pointer-events: none;
         }
 
-        /* --- CONTENEDOR ESTILO MAQUETA ILUSTRADA --- */
         .contenedor-carta {
             background: #ffffff;
             border-radius: 40px;
-            max-width: 420px;
+            max-width: 410px;
             width: 100%;
-            padding: 40px 25px 30px 25px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            padding: 60px 22px 30px 22px;
+            box-shadow: 0 25px 50px rgba(255, 77, 109, 0.3);
             text-align: center;
-            border: 5px solid #fff0f3;
+            border: 6px solid #fff0f3;
             position: relative;
             z-index: 10;
-            animation: entrada Suave 0.6s ease-out forwards;
-        }
-
-        @keyframes entradaSuave {
-            0% { transform: translateY(30px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
+            background-image: url('https://img.freepik.com/vector-premium/guirnalda-luces-colores-sobre-fondo-blanco_106456-1188.jpg');
+            background-size: 110% auto;
+            background-repeat: no-repeat;
+            background-position: top center;
         }
 
         h1 {
@@ -71,7 +58,7 @@
             color: #ff4d6d;
             font-size: 2.5rem;
             margin: 0 0 5px 0;
-            text-shadow: 2px 2px 0px #ffe5ec;
+            text-shadow: 3px 3px 0px #ffe5ec;
         }
 
         .dedicatoria {
@@ -79,90 +66,82 @@
             color: #ff758f;
             font-weight: 700;
             margin-bottom: 25px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
         }
 
-        /* --- TORTA VECTORIAL CSS (NUNCA SE CAE) --- */
+        /* --- TORTA --- */
         .torta-contenedor {
             width: 200px;
-            height: 180px;
-            margin: 0 auto 25px auto;
+            height: 160px;
+            margin: 0 auto 30px auto;
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             align-items: center;
+            filter: drop-shadow(0 12px 20px rgba(255, 77, 109, 0.25));
         }
 
-        /* Piso inferior */
         .piso-1 {
-            width: 180px;
-            height: 60px;
+            width: 190px;
+            height: 65px;
             background: #ffccd5;
-            border-radius: 15px 15px 5px 5px;
+            border-radius: 20px 20px 10px 10px;
             position: relative;
-            border: 3px solid #ffb3c1;
+            border: 4px solid #ffb3c1;
             z-index: 2;
         }
         .piso-1::after {
             content: "L I Z Z";
             position: absolute;
-            top: 35%;
+            top: 30%;
             left: 0;
             width: 100%;
             font-family: 'Fredoka One', cursive;
             color: #ffffff;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             letter-spacing: 4px;
-            text-shadow: 2px 2px 0px #ff4d6d;
+            text-shadow: 2.5px 2.5px 0px #ff4d6d;
         }
 
-        /* Piso superior */
         .piso-2 {
-            width: 130px;
-            height: 50px;
+            width: 140px;
+            height: 55px;
             background: #ffe5ec;
-            border-radius: 12px 12px 3px 3px;
+            border-radius: 16px 16px 5px 5px;
             position: relative;
-            border: 3px solid #ffccd5;
+            border: 4px solid #ffccd5;
             border-bottom: none;
             z-index: 3;
             margin-bottom: -5px;
         }
 
-        /* Crema goteando */
         .crema-chorreando {
             width: 100%;
-            height: 15px;
+            height: 18px;
             background: #ffffff;
-            border-radius: 0 0 10px 10px;
+            border-radius: 0 0 12px 12px;
             position: absolute;
             top: 0;
-            box-shadow: 0 4px 0 #fff0f3;
         }
 
-        /* Vela y llama viva */
         .vela-torta {
-            width: 8px;
-            height: 30px;
+            width: 10px;
+            height: 32px;
             background: linear-gradient(to top, #3a86ff, #00b4d8);
-            border-radius: 4px;
+            border-radius: 5px;
             z-index: 4;
             margin-bottom: -2px;
             position: relative;
         }
         .llama-viva {
             width: 14px;
-            height: 22px;
+            height: 24px;
             background: radial-gradient(circle at bottom, #ffbe0b 30%, #fb5607 90%);
             border-radius: 50% 50% 20% 20%;
             position: absolute;
-            top: -24px;
-            left: -3px;
-            box-shadow: 0 0 15px #ffbe0b;
+            top: -26px;
+            left: -2px;
+            box-shadow: 0 0 20px #ffbe0b;
             animation: vibrarFuego 0.3s infinite alternate ease-in-out;
         }
 
@@ -171,17 +150,17 @@
             100% { transform: scale(1.15) rotate(3deg); }
         }
 
-        /* --- BOTÓN PREMIUM DE LA CRISIS --- */
+        /* --- BOTÓN DE CRISIS --- */
         .btn-crisis {
             background: linear-gradient(135deg, #ff4d6d, #ff758f);
             color: white;
-            border: none;
-            padding: 16px 20px;
-            font-size: 1.1rem;
+            border: 2px solid #ffffff;
+            padding: 18px 20px;
+            font-size: 1.15rem;
             font-weight: 700;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(255, 77, 109, 0.4);
+            box-shadow: 0 12px 25px rgba(255, 77, 109, 0.4);
             width: 100%;
             transition: all 0.2s ease;
             font-family: 'Quicksand', sans-serif;
@@ -189,15 +168,15 @@
 
         .btn-crisis:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(255, 77, 109, 0.6);
+            box-shadow: 0 15px 30px rgba(255, 77, 109, 0.5);
         }
 
-        /* --- CAJA SORPRESA EN JODA --- */
+        /* --- SECCIÓN DESPLEGABLE --- */
         .caja-sorpresa {
             max-height: 0;
             opacity: 0;
             overflow: hidden;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.5s ease-in-out;
             background: #fff5f6;
             border-radius: 25px;
             margin-top: 0;
@@ -205,91 +184,64 @@
         }
 
         .caja-sorpresa.abierto {
-            max-height: 900px;
+            max-height: 950px;
             opacity: 1;
             margin-top: 25px;
-            padding: 22px 18px;
+            padding: 25px 20px;
         }
 
         .carta-texto {
             font-size: 1.05rem;
-            line-height: 1.6;
+            line-height: 1.65;
             color: #4a4a4a;
             text-align: left;
             margin: 0 0 25px 0;
         }
 
-        /* --- PERSONAJES ANIMADOS CON CSS (SUSTITUTO DE GIFS ROTOS) --- */
-        .pista-baile-nativa {
+        /* --- PISTA GIFS --- */
+        .pista-gifs {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             gap: 10px;
             margin-top: 15px;
-            background: #ffffff;
-            padding: 15px 5px;
-            border-radius: 20px;
-            border: 2px solid #fff0f3;
         }
 
-        .avatar-fiestero {
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2.2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            animation: saltarRitmo 0.5s infinite alternate ease-in-out;
-            position: relative;
-        }
-        /* Gorritos de fiesta nativos en CSS */
-        .avatar-fiestero::before {
-            content: "▲";
-            position: absolute;
-            top: -22px;
-            color: #ffbe0b;
-            font-size: 1.2rem;
-            text-shadow: 0 2px 0 #fb5607;
+        .pista-gifs img {
+            width: 31%;
+            height: 105px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 2px solid #ffccd5;
         }
 
-        .avatar-fiestero:nth-child(1) { background: #ffe5ec; animation-delay: 0.1s; }
-        .avatar-fiestero:nth-child(2) { background: #e8f0fe; animation-delay: 0.3s; }
-        .avatar-fiestero:nth-child(3) { background: #e6fffa; animation-delay: 0.2s; }
-
-        @keyframes saltarRitmo {
-            0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(-12px) scale(1.05); }
-        }
-
-        /* --- GLOBOS FLOTANTES --- */
+        /* --- GLOBOS --- */
         .globo-flotante {
             position: absolute;
-            width: 35px;
-            height: 45px;
+            width: 36px;
+            height: 46px;
             border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
             bottom: -60px;
-            animation: volarHaciaArriba linear infinite;
-            z-index: 1;
+            animation: volarArriba linear infinite;
+            z-index: 5;
         }
 
-        @keyframes volarHaciaArriba {
+        @keyframes volarArriba {
             0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
             100% { transform: translateY(-130vh) rotate(15deg); opacity: 0; }
         }
 
-        #modulo-audio { display: none; }
+        #musica-player { display: none; }
     </style>
 </head>
 <body>
 
-    <div class="luces-top"></div>
-
-    <div id="modulo-audio"></div>
+    <audio id="musica-player" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+    </audio>
 
     <div class="contenedor-carta">
         <h1>¡Feliz Cumpleaños!</h1>
-        <div class="dedicatoria"><span>🦫</span> Para: Lizz <span>🦖</span></div>
+        <div class="dedicatoria">✨ Para: Lizz ✨</div>
 
         <div class="torta-contenedor">
             <div class="vela-torta"><div class="llama-viva"></div></div>
@@ -304,36 +256,34 @@
                 *¡Feliz cumpleaños, Lizz! Que este nuevo año de vida venga cargado de muchísima felicidad, éxitos y momentos increíbles (o al menos que no se te queme la torta). Eres una amiga espectacular y te mereces lo mejor del mundo hoy y siempre. ¡A celebrar en grande con Bruno Mars! Te quiero un montón (pero no tanto como al capibara). ❤️🎂
             </p>
 
-            <div class="pista-baile-nativa">
-                <div class="avatar-fiestero" title="Capibara">🦫</div>
-                <div class="avatar-fiestero" title="Oso Fiestero">🐻</div>
-                <div class="avatar-fiestero" title="Perrito Loco">🐶</div>
+            <div class="pista-gifs">
+                <img src="https://media.tenor.com/7SWeH6M7m0IAAAAj/capybara-dance.gif" alt="Capibara">
+                <img src="https://media.tenor.com/YvSgT0w_Z7gAAAAj/bubu-dudu.gif" alt="Oso">
+                <img src="https://media.tenor.com/2Yf8Xv7Xf_8AAAAj/happy-dog.gif" alt="Perrito">
             </div>
         </div>
     </div>
 
     <script>
-        const boton = document.getElementById('btnDisparador');
+        const boton = document.getElementById('btnDisparar');
         const sorpresa = document.getElementById('bloqueContenido');
-        const cajaAudio = document.getElementById('modulo-audio');
-        let ejecutandoMusica = false;
+        const audio = document.getElementById('musica-player');
 
         boton.addEventListener('click', () => {
+            // Acción 1: Abrir/Cerrar la pestaña
             sorpresa.classList.toggle('abierto');
 
             if (sorpresa.classList.contains('abierto')) {
                 boton.textContent = '¡Felicidades por la vejez! 💀✨';
                 iniciarLluviaGlobos();
                 
-                // Carga el audio de Bruno Mars (24K Magic) usando un servidor alternativo super estable
-                if (!ejecutandoMusica) {
-                    cajaAudio.innerHTML = `<iframe src="https://www.youtube.com/embed/UqyT8IEBkvY?autoplay=1" allow="autoplay"></iframe>`;
-                    ejecutandoMusica = true;
-                }
+                // Acción 2: Forzar reproducción de audio nativo al hacer clic
+                audio.play().catch(error => {
+                    console.log("El navegador bloqueó el audio inicialmente:", error);
+                });
             } else {
                 boton.textContent = '¡A celebrar, Lizz! 🎉 crisis de los 20!';
-                cajaAudio.innerHTML = '';
-                ejecutandoMusica = false;
+                audio.pause();
             }
         });
 
