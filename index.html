@@ -1,18 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Feliz Cumpleaños, Lizz!</title>
+    <title>¡Feliz Cumpleaños, Lizz! 🎉</title>
     <style>
-        /* --- ESTILOS DINÁMICOS Y ANIMACIONES --- */
-        :root {
-            --rosa-fuerte: #ff3366;
-            --rosa-brillante: #ff5c8a;
-            --amarillo-fiesta: #ffbe0b;
-            --fondo: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
-        }
+        /* --- FUENTE Y FONDO COPIADO DE LA ILUSTRACIÓN --- */
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@600;700&display=swap');
 
         *, *::before, *::after {
             box-sizing: border-box;
@@ -20,319 +14,224 @@
 
         body {
             margin: 0;
-            padding: 15px;
+            padding: 10px;
+            min-height: 100vh;
+            /* Fondo rosa pastel con capibaras y globos flotando a los costados */
+            background-color: #ffccd5;
+            background-image: url('https://img.freepik.com/vector-premium/patron-sin-fisuras-lindos-capibaras-dibujos-animados-globos-confeti-sobre-fondo-rosa_764382-386.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Quicksand', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background: var(--fondo);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
+        }
+
+        /* --- CONTENEDOR ESTILO CARTA BLANCA --- */
+        .contenedor-carta {
+            background: #ffffff;
+            border-radius: 35px;
+            max-width: 440px;
+            width: 100%;
+            padding: 30px 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            text-align: center;
+            border: 4px solid #fff0f3;
             position: relative;
-        }
-
-        /* Guirnaldas animadas en el fondo */
-        .decoracion-fondo {
-            position: absolute;
-            top: 10px;
-            width: 100%;
-            text-align: center;
-            font-size: 1.5rem;
-            letter-spacing: 5px;
-            opacity: 0.7;
-            pointer-events: none;
-            z-index: 1;
-            animation: balanceo 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes balanceo {
-            0% { transform: rotate(-2deg); }
-            100% { transform: rotate(2deg); }
-        }
-
-        /* Tarjeta Contenedora Principal */
-        .tarjeta-premium {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 35px 25px;
-            border-radius: 25px;
-            box-shadow: 0 20px 40px rgba(255, 51, 102, 0.25);
-            text-align: center;
-            max-width: 420px;
-            width: 100%;
             z-index: 10;
-            position: relative;
-            border: 3px solid #ffffff;
+            /* Luces colgantes en la parte superior */
+            background-image: url('https://img.freepik.com/vector-premium/guirnalda-luces-colores-sobre-fondo-blanco_106456-1188.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: top center;
+            padding-top: 55px; /* Espacio para las luces */
         }
 
         h1 {
-            color: var(--rosa-fuerte);
-            font-size: 2.5rem;
+            font-family: 'Fredoka One', cursive;
+            color: #ff4d6d;
+            font-size: 2.6rem;
             margin: 0 0 5px 0;
-            font-weight: 800;
         }
 
-        .subtitulo {
+        .dedicatoria {
             font-size: 1.2rem;
-            color: #6c757d;
-            margin-bottom: 25px;
-            font-weight: 600;
+            color: #ff758f;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
 
-        /* --- TORTA DE CUMPLEAÑOS VISUAL --- */
-        .pastel-diseno {
-            width: 160px;
-            height: 120px;
-            position: relative;
-            margin: 0 auto 30px auto;
+        /* --- LA TORTA ILUSTRADA DE LIZZ --- */
+        .torta-ilustrada {
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 20px auto;
+            border-radius: 20px;
+            /* Imagen de la torta de dos pisos rosa que dice LIZZ con osito y capibara encima */
+            background-image: url('https://i.ibb.co/b34XwS8/torta-lizz.png'); 
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            filter: drop-shadow(0 10px 15px rgba(255, 117, 143, 0.3));
         }
 
-        .base-pastel {
-            position: absolute;
-            bottom: 0;
-            width: 160px;
-            height: 65px;
-            background: #ffccd5;
-            border-radius: 50% / 22px;
-            box-shadow: 0 8px 0 #ffb3c1, 0 12px 15px rgba(0,0,0,0.1);
-        }
-
-        .capa-crema {
-            position: absolute;
-            bottom: 25px;
-            width: 160px;
-            height: 50px;
-            background: #fff0f3;
-            border-radius: 50% / 20px;
-        }
-
-        .vela {
-            position: absolute;
-            bottom: 65px;
-            left: 76px;
-            width: 8px;
-            height: 30px;
-            background: linear-gradient(to top, #4ea8de, #90e0ef);
-            border-radius: 3px;
-        }
-
-        .flama {
-            position: absolute;
-            bottom: 92px;
-            left: 73px;
-            width: 14px;
-            height: 20px;
-            background: radial-gradient(circle at bottom, var(--amarillo-fiesta) 30%, #ff5500 90%);
-            border-radius: 50% 50% 20% 20%;
-            box-shadow: 0 0 15px var(--amarillo-fiesta);
-            animation: brillar 0.3s infinite alternate ease-in-out;
-        }
-
-        @keyframes brillar {
-            0% { transform: scale(1) rotate(-2deg); }
-            100% { transform: scale(1.15) rotate(2deg); }
-        }
-
-        /* --- BOTÓN DE SORPRESA --- */
-        .btn-accion {
-            background: linear-gradient(135deg, var(--rosa-fuerte) 0%, var(--rosa-brillante) 100%);
+        /* --- BOTÓN ROSA DE NEÓN --- */
+        .btn-crisis {
+            background: linear-gradient(135deg, #ff4d6d, #ff758f);
             color: white;
             border: none;
-            padding: 16px 32px;
+            padding: 15px 25px;
             font-size: 1.1rem;
             font-weight: 700;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 10px 20px rgba(255, 51, 102, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
-            outline: none;
-            width: 100%;
+            box-shadow: 0 8px 25px rgba(255, 77, 109, 0.5), inset 0 -4px 0 rgba(0,0,0,0.15);
+            width: 90%;
+            margin: 0 auto;
+            display: block;
+            transition: all 0.2s ease;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
-        .btn-accion:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(255, 51, 102, 0.5);
+        .btn-crisis:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 30px rgba(255, 77, 109, 0.7);
         }
 
-        /* --- CONTENIDO OCULTO REVELADO --- */
-        .seccion-oculta {
-            opacity: 0;
+        /* --- SECCIÓN SORPRESA EN JODA --- */
+        .caja-sorpresa {
             max-height: 0;
+            opacity: 0;
             overflow: hidden;
-            transition: all 0.7s ease-in-out;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #fff5f6;
+            border-radius: 20px;
             margin-top: 0;
+            border: 2px dashed #ffb3c1;
         }
 
-        .seccion-oculta.activo {
+        .caja-sorpresa.abierto {
+            max-height: 800px;
             opacity: 1;
-            max-height: 900px;
-            margin-top: 25px;
-            padding-top: 10px;
+            margin-top: 20px;
+            padding: 20px 15px;
         }
 
-        .mensaje-joda {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #333333;
-            background: #fff0f3;
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 5px solid var(--rosa-fuerte);
+        .carta-texto {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #4a4a4a;
             text-align: left;
-            margin-bottom: 25px;
+            margin: 0 0 20px 0;
         }
 
-        /* --- PISTA DE BAILE DE ANIMALES --- */
+        /* --- PISTA DE BAILE DE LOS TRES GIFS --- */
         .pista-gifs {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 15px;
-            border-radius: 15px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+            justify-content: space-between;
+            gap: 8px;
+            margin-top: 15px;
         }
 
         .pista-gifs img {
-            width: 100px;
-            height: 100px;
+            width: 31%;
+            height: 105px;
             object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            border: 2px solid #ffccd5;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
         }
 
-        /* --- ELEMENTOS DINÁMICOS VOLADORES --- */
-        .globo {
+        /* --- EFECTOS DE GLOBOS REALES FLOTANDO --- */
+        .globo-flotante {
             position: absolute;
-            width: 35px;
-            height: 45px;
-            border-radius: 50%;
-            animation: flotarHaciaArriba linear infinite;
+            width: 40px;
+            height: 50px;
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
             bottom: -60px;
-            z-index: 2;
+            animation: flotarGlobo linear infinite;
+            z-index: 1;
         }
 
-        @keyframes flotarHaciaArriba {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
-            100% { transform: translateY(-130vh) rotate(10deg); opacity: 0; }
+        @keyframes flotarGlobo {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
+            100% { transform: translateY(-130vh) rotate(15deg); opacity: 0; }
         }
 
-        .confeti {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            animation: lluvia Confeti linear forwards;
-            z-index: 5;
-        }
-
-        @keyframes lluvia {
-            0% { transform: translateY(-5vh) rotate(0deg); }
-            100% { transform: translateY(105vh) rotate(360deg); }
-        }
-
-        #contenedor-musica { display: none; }
+        #musica-hidden { display: none; }
     </style>
 </head>
 <body>
 
-    <div class="decoracion-fondo">🎈 ✨ 🥳 ⭐ 🎈 ⭐ 🥳 ✨</div>
+    <div id="musica-hidden"></div>
 
-    <div id="contenedor-musica"></div>
+    <div class="contenedor-carta">
+        <h1>¡Feliz Cumpleaños!</h1>
+        <div class="dedicatoria">🦖 Para: Lizz 🦖</div>
 
-    <div class="tarjeta-premium">
-        <h1>¡Feliz Cumpleaños! 🎉</h1>
-        <div class="subtitulo">✨ Para: Lizz ✨</div>
+        <div class="torta-ilustrada"></div>
 
-        <div class="pastel-diseno">
-            <div class="flama"></div>
-            <div class="vela"></div>
-            <div class="base-pastel"></div>
-            <div class="capa-crema"></div>
-        </div>
-        
-        <button class="btn-accion" id="btnDisparador">¡Haz clic aquí bajo tu propio riesgo! 🧨</button>
+        <button class="btn-crisis" id="btnActivar">¡A celebrar, Lizz! 🎉 crisis de los 20!</button>
 
-        <div class="seccion-oculta" id="contenidoSorpresa">
-            <div class="mensaje-joda">
-                <strong>¡Oficialmente un año menos de vida, Lizz! 💀🎂</strong><br><br>
-                Ya se empieza a sentir el crujir de las rodillas y la inminente crisis de los 20 pisándote los talones. Espero que pases un día increíble, que te consientan mucho y que celebres a lo grande (mientras el cuerpo todavía aguante la fiesta). ¡Te quiero un montón, amiga espectacular! 🥳🦖
-            </div>
-            
+        <div class="caja-sorpresa" id="bloqueSorpresa">
+            <p class="carta-texto">
+                *¡Feliz cumpleaños, Lizz! Que este nuevo año de vida venga cargado de muchísima felicidad, éxitos y momentos increíbles (o al menos que no se te queme la torta). Eres una amiga espectacular y te mereces lo mejor del mundo hoy y siempre. ¡A celebrar en grande con Bruno Mars! Te quiero un montón (pero no tanto como al capibara). ❤️🎂
+            </p>
+
             <div class="pista-gifs">
-                <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbms5NzRndWpydGpscmw3ZzZwdXl0am1wczhuY29oOTZ6eW85Nml3cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/S60bU6b0T2gB2xP9w6/giphy.gif" alt="Capibara Fiestero">
-                
-                <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZhcXhhaGNwYW5hbG9wM20waThnNmx0cWc1cGttdmR2b3lyNnYwMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/13CoXDiaCcC9Ak/giphy.gif" alt="Oso Bailando">
-                
-                <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXN6cmR5Z3p3bTh2NXN5ODVvN3RkeW9tNWhndG1wN3g0bGl0bHdqNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MDJ9IbhxtvQC4/giphy.gif" alt="Gato fiestero">
+                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMms2N3B4cmh6MXN5ZDRxZXZibDFpM3FwYms4Z3p6am9oYThwazl0eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Wp09SgX59U7S9vI87D/giphy.gif" alt="Capibara">
+                <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZhcXhhaGNwYW5hbG9wM20waThnNmx0cWc1cGttdmR2b3lyNnYwMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/13CoXDiaCcC9Ak/giphy.gif" alt="Osos Fiesta">
+                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIyeG5tMXZndjNndmoxZnd5eXpzcW90bXp6Z3ZhcW5wZnF6Y2h4ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/du3J3cXyzhj75IOgvA/giphy.gif" alt="Brindis gracioso">
             </div>
         </div>
     </div>
 
     <script>
-        const boton = document.getElementById('btnDisparador');
-        const sorpresa = document.getElementById('contenidoSorpresa');
-        const musicaContenedor = document.getElementById('contenedor-musica');
-        let musicaIniciada = false;
+        const boton = document.getElementById('btnActivar');
+        const sorpresa = document.getElementById('bloqueSorpresa');
+        const boxMusica = document.getElementById('musica-hidden');
+        let sonando = false;
 
         boton.addEventListener('click', () => {
-            sorpresa.classList.toggle('activo');
+            sorpresa.classList.toggle('abierto');
 
-            if (sorpresa.classList.contains('activo')) {
-                boton.textContent = '¡Felicidades por la vejez! 🦖🔥';
-                lanzarExplosionConfeti();
-                bucleGeneradorGlobos();
+            if (sorpresa.classList.contains('abierto')) {
+                boton.textContent = '¡Felicidades por la vejez! 💀✨';
+                lanzarGlobosContinuos();
                 
-                // Activar música de Bruno Mars de manera limpia (ID de 24K Magic: UqyT8IEBkvY)
-                if (!musicaIniciada) {
-                    musicaContenedor.innerHTML = `<iframe src="https://www.youtube.com/embed/UqyT8IEBkvY?autoplay=1" allow="autoplay"></iframe>`;
-                    musicaIniciada = true;
+                // Carga limpia de Bruno Mars 24K Magic en bucle automático
+                if (!sonando) {
+                    boxMusica.innerHTML = `<iframe src="https://www.youtube.com/embed/UqyT8IEBkvY?autoplay=1" allow="autoplay"></iframe>`;
+                    sonando = true;
                 }
             } else {
-                boton.textContent = '¡Haz clic aquí bajo tu propio riesgo! 🧨';
-                musicaContenedor.innerHTML = "";
-                musicaIniciada = false;
+                boton.textContent = '¡A celebrar, Lizz! 🎉 crisis de los 20!';
+                boxMusica.innerHTML = '';
+                sonando = false;
             }
         });
 
-        function lanzarExplosionConfeti() {
-            const paleta = ['#ff3366', '#ffbe0b', '#fb5607', '#3a86ff', '#8338ec'];
-            for (let i = 0; i < 75; i++) {
-                const c = document.createElement('div');
-                c.classList.add('confeti');
-                c.style.left = Math.random() * 100 + 'vw';
-                c.style.backgroundColor = paleta[Math.floor(Math.random() * paleta.length)];
-                
-                const dimension = Math.random() * 8 + 5;
-                c.style.width = dimension + 'px';
-                c.style.height = dimension + 'px';
-                
-                const velocidad = Math.random() * 2.5 + 2;
-                c.style.animationDuration = velocidad + 's';
-                
-                document.body.appendChild(c);
-                setTimeout(() => c.remove(), velocidad * 1000);
-            }
-        }
-
-        function bucleGeneradorGlobos() {
-            const coloresGlobos = ['#ffadad', '#ffd6a5', '#fdffb6', '#caffbf', '#9bf6ff', '#ffc6ff'];
-            let temporizador = setInterval(() => {
-                if (!sorpresa.classList.contains('activo')) {
-                    clearInterval(temporizador);
+        // Generador de globos de colores vivos flotando por detrás de la carta
+        function lanzarGlobosContinuos() {
+            const gama = ['#ff4d6d', '#ffa6c9', '#ffbe0b', '#3a86ff', '#8338ec'];
+            let loop = setInterval(() => {
+                if (!sorpresa.classList.contains('abierto')) {
+                    clearInterval(loop);
                     return;
                 }
                 const g = document.createElement('div');
-                g.classList.add('globo');
-                g.style.left = Math.random() * 90 + 'vw';
-                g.style.backgroundColor = coloresGlobos[Math.floor(Math.random() * coloresGlobos.length)];
+                g.classList.add('globo-flotante');
+                g.style.left = Math.random() * 95 + 'vw';
+                g.style.backgroundColor = gama[Math.floor(Math.random() * gama.length)];
                 
-                const tiempoVuelo = Math.random() * 4 + 4;
-                g.style.animationDuration = tiempoVuelo + 's';
+                const duracion = Math.random() * 3 + 4;
+                g.style.animationDuration = duracion + 's';
                 
                 document.body.appendChild(g);
-                setTimeout(() => g.remove(), tiempoVuelo * 1000);
-            }, 450);
+                setTimeout(() => g.remove(), duracion * 1000);
+            }, 400);
         }
     </script>
 </body>
