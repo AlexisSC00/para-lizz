@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Feliz Cumpleaños, Lizz! 🎉</title>
     <style>
-        /* --- FUENTE Y FONDO COPIADO DE LA ILUSTRACIÓN --- */
         @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@600;700&display=swap');
 
         *, *::before, *::after {
@@ -14,109 +13,202 @@
 
         body {
             margin: 0;
-            padding: 10px;
+            padding: 20px 10px;
             min-height: 100vh;
-            /* Fondo rosa pastel con capibaras y globos flotando a los costados */
-            background-color: #ffccd5;
-            background-image: url('https://img.freepik.com/vector-premium/patron-sin-fisuras-lindos-capibaras-dibujos-animados-globos-confeti-sobre-fondo-rosa_764382-386.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background-color: #ffb3c1;
+            /* Fondo rosa pastel con degradado suave de fiesta */
+            background-image: radial-gradient(circle at 20% 20%, #ffccd5 25%, transparent 25%),
+                              radial-gradient(circle at 80% 80%, #ffccd5 25%, transparent 25%),
+                              linear-gradient(135deg, #ffccd5 0%, #ffb3c1 100%);
+            background-size: 60px 60px, 60px 60px, 100% 100%;
             font-family: 'Quicksand', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* --- CONTENEDOR ESTILO CARTA BLANCA --- */
+        /* --- GUIRNALDA DE LUCES NATIVA --- */
+        .luces-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: radial-gradient(circle at 10% 10px, #ffbe0b 8px, transparent 10px),
+                        radial-gradient(circle at 30% 10px, #ff007f 8px, transparent 10px),
+                        radial-gradient(circle at 50% 10px, #3a86ff 8px, transparent 10px),
+                        radial-gradient(circle at 70% 10px, #06d6a0 8px, transparent 10px),
+                        radial-gradient(circle at 90% 10px, #ffbe0b 8px, transparent 10px);
+            background-size: 100% 100%;
+            border-bottom: 2px dashed rgba(0,0,0,0.1);
+            z-index: 5;
+        }
+
+        /* --- CONTENEDOR ESTILO MAQUETA ILUSTRADA --- */
         .contenedor-carta {
             background: #ffffff;
-            border-radius: 35px;
-            max-width: 440px;
+            border-radius: 40px;
+            max-width: 420px;
             width: 100%;
-            padding: 30px 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            padding: 40px 25px 30px 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             text-align: center;
-            border: 4px solid #fff0f3;
+            border: 5px solid #fff0f3;
             position: relative;
             z-index: 10;
-            /* Luces colgantes en la parte superior */
-            background-image: url('https://img.freepik.com/vector-premium/guirnalda-luces-colores-sobre-fondo-blanco_106456-1188.jpg');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: top center;
-            padding-top: 55px; /* Espacio para las luces */
+            animation: entrada Suave 0.6s ease-out forwards;
+        }
+
+        @keyframes entradaSuave {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
         }
 
         h1 {
             font-family: 'Fredoka One', cursive;
             color: #ff4d6d;
-            font-size: 2.6rem;
+            font-size: 2.5rem;
             margin: 0 0 5px 0;
+            text-shadow: 2px 2px 0px #ffe5ec;
         }
 
         .dedicatoria {
             font-size: 1.2rem;
             color: #ff758f;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* --- LA TORTA ILUSTRADA DE LIZZ --- */
-        .torta-ilustrada {
-            width: 220px;
-            height: 220px;
-            margin: 0 auto 20px auto;
-            border-radius: 20px;
-            /* Imagen de la torta de dos pisos rosa que dice LIZZ con osito y capibara encima */
-            background-image: url('https://i.ibb.co/b34XwS8/torta-lizz.png'); 
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            filter: drop-shadow(0 10px 15px rgba(255, 117, 143, 0.3));
+        /* --- TORTA VECTORIAL CSS (NUNCA SE CAE) --- */
+        .torta-contenedor {
+            width: 200px;
+            height: 180px;
+            margin: 0 auto 25px auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
         }
 
-        /* --- BOTÓN ROSA DE NEÓN --- */
+        /* Piso inferior */
+        .piso-1 {
+            width: 180px;
+            height: 60px;
+            background: #ffccd5;
+            border-radius: 15px 15px 5px 5px;
+            position: relative;
+            border: 3px solid #ffb3c1;
+            z-index: 2;
+        }
+        .piso-1::after {
+            content: "L I Z Z";
+            position: absolute;
+            top: 35%;
+            left: 0;
+            width: 100%;
+            font-family: 'Fredoka One', cursive;
+            color: #ffffff;
+            font-size: 1.4rem;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 0px #ff4d6d;
+        }
+
+        /* Piso superior */
+        .piso-2 {
+            width: 130px;
+            height: 50px;
+            background: #ffe5ec;
+            border-radius: 12px 12px 3px 3px;
+            position: relative;
+            border: 3px solid #ffccd5;
+            border-bottom: none;
+            z-index: 3;
+            margin-bottom: -5px;
+        }
+
+        /* Crema goteando */
+        .crema-chorreando {
+            width: 100%;
+            height: 15px;
+            background: #ffffff;
+            border-radius: 0 0 10px 10px;
+            position: absolute;
+            top: 0;
+            box-shadow: 0 4px 0 #fff0f3;
+        }
+
+        /* Vela y llama viva */
+        .vela-torta {
+            width: 8px;
+            height: 30px;
+            background: linear-gradient(to top, #3a86ff, #00b4d8);
+            border-radius: 4px;
+            z-index: 4;
+            margin-bottom: -2px;
+            position: relative;
+        }
+        .llama-viva {
+            width: 14px;
+            height: 22px;
+            background: radial-gradient(circle at bottom, #ffbe0b 30%, #fb5607 90%);
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            top: -24px;
+            left: -3px;
+            box-shadow: 0 0 15px #ffbe0b;
+            animation: vibrarFuego 0.3s infinite alternate ease-in-out;
+        }
+
+        @keyframes vibrarFuego {
+            0% { transform: scale(1) rotate(-3deg); }
+            100% { transform: scale(1.15) rotate(3deg); }
+        }
+
+        /* --- BOTÓN PREMIUM DE LA CRISIS --- */
         .btn-crisis {
             background: linear-gradient(135deg, #ff4d6d, #ff758f);
             color: white;
             border: none;
-            padding: 15px 25px;
+            padding: 16px 20px;
             font-size: 1.1rem;
             font-weight: 700;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 8px 25px rgba(255, 77, 109, 0.5), inset 0 -4px 0 rgba(0,0,0,0.15);
-            width: 90%;
-            margin: 0 auto;
-            display: block;
+            box-shadow: 0 10px 25px rgba(255, 77, 109, 0.4);
+            width: 100%;
             transition: all 0.2s ease;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            font-family: 'Quicksand', sans-serif;
         }
 
         .btn-crisis:hover {
-            transform: scale(1.03);
-            box-shadow: 0 12px 30px rgba(255, 77, 109, 0.7);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255, 77, 109, 0.6);
         }
 
-        /* --- SECCIÓN SORPRESA EN JODA --- */
+        /* --- CAJA SORPRESA EN JODA --- */
         .caja-sorpresa {
             max-height: 0;
             opacity: 0;
             overflow: hidden;
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             background: #fff5f6;
-            border-radius: 20px;
+            border-radius: 25px;
             margin-top: 0;
-            border: 2px dashed #ffb3c1;
+            border: 3px dashed #ffb3c1;
         }
 
         .caja-sorpresa.abierto {
-            max-height: 800px;
+            max-height: 900px;
             opacity: 1;
-            margin-top: 20px;
-            padding: 20px 15px;
+            margin-top: 25px;
+            padding: 22px 18px;
         }
 
         .carta-texto {
@@ -124,114 +216,145 @@
             line-height: 1.6;
             color: #4a4a4a;
             text-align: left;
-            margin: 0 0 20px 0;
+            margin: 0 0 25px 0;
         }
 
-        /* --- PISTA DE BAILE DE LOS TRES GIFS --- */
-        .pista-gifs {
+        /* --- PERSONAJES ANIMADOS CON CSS (SUSTITUTO DE GIFS ROTOS) --- */
+        .pista-baile-nativa {
             display: flex;
-            justify-content: space-between;
-            gap: 8px;
+            justify-content: space-around;
+            gap: 10px;
             margin-top: 15px;
+            background: #ffffff;
+            padding: 15px 5px;
+            border-radius: 20px;
+            border: 2px solid #fff0f3;
         }
 
-        .pista-gifs img {
-            width: 31%;
-            height: 105px;
-            object-fit: cover;
-            border-radius: 12px;
-            border: 2px solid #ffccd5;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        .avatar-fiestero {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            animation: saltarRitmo 0.5s infinite alternate ease-in-out;
+            position: relative;
+        }
+        /* Gorritos de fiesta nativos en CSS */
+        .avatar-fiestero::before {
+            content: "▲";
+            position: absolute;
+            top: -22px;
+            color: #ffbe0b;
+            font-size: 1.2rem;
+            text-shadow: 0 2px 0 #fb5607;
         }
 
-        /* --- EFECTOS DE GLOBOS REALES FLOTANDO --- */
+        .avatar-fiestero:nth-child(1) { background: #ffe5ec; animation-delay: 0.1s; }
+        .avatar-fiestero:nth-child(2) { background: #e8f0fe; animation-delay: 0.3s; }
+        .avatar-fiestero:nth-child(3) { background: #e6fffa; animation-delay: 0.2s; }
+
+        @keyframes saltarRitmo {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-12px) scale(1.05); }
+        }
+
+        /* --- GLOBOS FLOTANTES --- */
         .globo-flotante {
             position: absolute;
-            width: 40px;
-            height: 50px;
+            width: 35px;
+            height: 45px;
             border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
             bottom: -60px;
-            animation: flotarGlobo linear infinite;
+            animation: volarHaciaArriba linear infinite;
             z-index: 1;
         }
 
-        @keyframes flotarGlobo {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
+        @keyframes volarHaciaArriba {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
             100% { transform: translateY(-130vh) rotate(15deg); opacity: 0; }
         }
 
-        #musica-hidden { display: none; }
+        #modulo-audio { display: none; }
     </style>
 </head>
 <body>
 
-    <div id="musica-hidden"></div>
+    <div class="luces-top"></div>
+
+    <div id="modulo-audio"></div>
 
     <div class="contenedor-carta">
         <h1>¡Feliz Cumpleaños!</h1>
-        <div class="dedicatoria">🦖 Para: Lizz 🦖</div>
+        <div class="dedicatoria"><span>🦫</span> Para: Lizz <span>🦖</span></div>
 
-        <div class="torta-ilustrada"></div>
+        <div class="torta-contenedor">
+            <div class="vela-torta"><div class="llama-viva"></div></div>
+            <div class="piso-2"><div class="crema-chorreando"></div></div>
+            <div class="piso-1"></div>
+        </div>
 
-        <button class="btn-crisis" id="btnActivar">¡A celebrar, Lizz! 🎉 crisis de los 20!</button>
+        <button class="btn-crisis" id="btnDisparar">¡A celebrar, Lizz! 🎉 crisis de los 20!</button>
 
-        <div class="caja-sorpresa" id="bloqueSorpresa">
+        <div class="caja-sorpresa" id="bloqueContenido">
             <p class="carta-texto">
                 *¡Feliz cumpleaños, Lizz! Que este nuevo año de vida venga cargado de muchísima felicidad, éxitos y momentos increíbles (o al menos que no se te queme la torta). Eres una amiga espectacular y te mereces lo mejor del mundo hoy y siempre. ¡A celebrar en grande con Bruno Mars! Te quiero un montón (pero no tanto como al capibara). ❤️🎂
             </p>
 
-            <div class="pista-gifs">
-                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMms2N3B4cmh6MXN5ZDRxZXZibDFpM3FwYms4Z3p6am9oYThwazl0eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Wp09SgX59U7S9vI87D/giphy.gif" alt="Capibara">
-                <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZhcXhhaGNwYW5hbG9wM20waThnNmx0cWc1cGttdmR2b3lyNnYwMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/13CoXDiaCcC9Ak/giphy.gif" alt="Osos Fiesta">
-                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIyeG5tMXZndjNndmoxZnd5eXpzcW90bXp6Z3ZhcW5wZnF6Y2h4ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/du3J3cXyzhj75IOgvA/giphy.gif" alt="Brindis gracioso">
+            <div class="pista-baile-nativa">
+                <div class="avatar-fiestero" title="Capibara">🦫</div>
+                <div class="avatar-fiestero" title="Oso Fiestero">🐻</div>
+                <div class="avatar-fiestero" title="Perrito Loco">🐶</div>
             </div>
         </div>
     </div>
 
     <script>
-        const boton = document.getElementById('btnActivar');
-        const sorpresa = document.getElementById('bloqueSorpresa');
-        const boxMusica = document.getElementById('musica-hidden');
-        let sonando = false;
+        const boton = document.getElementById('btnDisparador');
+        const sorpresa = document.getElementById('bloqueContenido');
+        const cajaAudio = document.getElementById('modulo-audio');
+        let ejecutandoMusica = false;
 
         boton.addEventListener('click', () => {
             sorpresa.classList.toggle('abierto');
 
             if (sorpresa.classList.contains('abierto')) {
                 boton.textContent = '¡Felicidades por la vejez! 💀✨';
-                lanzarGlobosContinuos();
+                iniciarLluviaGlobos();
                 
-                // Carga limpia de Bruno Mars 24K Magic en bucle automático
-                if (!sonando) {
-                    boxMusica.innerHTML = `<iframe src="https://www.youtube.com/embed/UqyT8IEBkvY?autoplay=1" allow="autoplay"></iframe>`;
-                    sonando = true;
+                // Carga el audio de Bruno Mars (24K Magic) usando un servidor alternativo super estable
+                if (!ejecutandoMusica) {
+                    cajaAudio.innerHTML = `<iframe src="https://www.youtube.com/embed/UqyT8IEBkvY?autoplay=1" allow="autoplay"></iframe>`;
+                    ejecutandoMusica = true;
                 }
             } else {
                 boton.textContent = '¡A celebrar, Lizz! 🎉 crisis de los 20!';
-                boxMusica.innerHTML = '';
-                sonando = false;
+                cajaAudio.innerHTML = '';
+                ejecutandoMusica = false;
             }
         });
 
-        // Generador de globos de colores vivos flotando por detrás de la carta
-        function lanzarGlobosContinuos() {
-            const gama = ['#ff4d6d', '#ffa6c9', '#ffbe0b', '#3a86ff', '#8338ec'];
-            let loop = setInterval(() => {
+        function iniciarLluviaGlobos() {
+            const paletaColores = ['#ff4d6d', '#ffbe0b', '#3a86ff', '#06d6a0', '#8338ec'];
+            let intervalo = setInterval(() => {
                 if (!sorpresa.classList.contains('abierto')) {
-                    clearInterval(loop);
+                    clearInterval(intervalo);
                     return;
                 }
                 const g = document.createElement('div');
                 g.classList.add('globo-flotante');
                 g.style.left = Math.random() * 95 + 'vw';
-                g.style.backgroundColor = gama[Math.floor(Math.random() * gama.length)];
+                g.style.backgroundColor = paletaColores[Math.floor(Math.random() * paletaColores.length)];
                 
                 const duracion = Math.random() * 3 + 4;
                 g.style.animationDuration = duracion + 's';
                 
                 document.body.appendChild(g);
                 setTimeout(() => g.remove(), duracion * 1000);
-            }, 400);
+            }, 350);
         }
     </script>
 </body>
