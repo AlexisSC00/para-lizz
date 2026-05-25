@@ -5,238 +5,324 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Feliz Cumpleaños, Lizz!</title>
     <style>
-        /* --- DISEÑO GENERAL --- */
+        /* --- ESTILOS MODERNOS Y ANIMACIONES --- */
         :root {
-            --rosa-principal: #ff758f;
-            --rosa-suave: #ffccd5;
-            --crema-pastel: #fff3e0;
-            --bizcocho: #f4a261;
-            --fondo: linear-gradient(135deg, #ffe5ec 0%, #ffc1cc 100%);
-            --texto: #4a4a4a;
+            --rosa-brillante: #ff4d6d;
+            --rosa-neon: #ff758f;
+            --rosa-pastel: #ffe5ec;
+            --dorado: #ffb703;
+            --fondo-gradiente: linear-gradient(45deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
         }
 
         body {
             margin: 0;
-            padding: 20px;
+            padding: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: var(--fondo);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--texto);
+            background: var(--fondo-gradiente);
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
             overflow-x: hidden;
             position: relative;
         }
 
+        /* Destellos mágicos de fondo */
+        .particula {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: flotarParticula 6s infinite linear;
+        }
+
+        @keyframes flotarParticula {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+
+        /* Tarjeta Estilo Cristal / Premium */
         .tarjeta {
-            background: rgba(255, 255, 255, 0.96);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
             padding: 35px 25px;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(235, 104, 130, 0.2);
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(255, 77, 109, 0.3);
             text-align: center;
-            max-width: 400px;
+            max-width: 410px;
             width: 100%;
             z-index: 10;
             position: relative;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            transform: scale(0.98);
+            animation: aparecerTarjeta 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes aparecerTarjeta {
+            to { transform: scale(1); }
         }
 
         h1 {
-            color: var(--rosa-principal);
-            font-size: 2.3rem;
-            margin: 0 0 5px 0;
-            font-weight: 700;
+            color: var(--rosa-brillante);
+            font-size: 2.6rem;
+            margin: 0;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+            animation: latido 1.5s infinite alternate;
+        }
+
+        @keyframes latido {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.03); }
         }
 
         .dedicado {
-            font-size: 1.2rem;
-            color: #7d7d7d;
-            margin-bottom: 20px;
+            font-size: 1.3rem;
+            color: #6c757d;
+            margin: 8px 0 25px 0;
             font-weight: 600;
-            letter-spacing: 1px;
         }
 
-        /* --- PASTEL EN CSS --- */
-        .pastel-contenedor {
-            width: 140px;
-            height: 110px;
+        /* --- TORTA DE CUMPLEAÑOS EN 3D REALISTA --- */
+        .pastel-3d {
+            width: 160px;
+            height: 120px;
             position: relative;
-            margin: 0 auto 25px auto;
+            margin: 0 auto 30px auto;
+            cursor: pointer;
         }
 
-        .piso-pastel {
+        .base-pastel {
             position: absolute;
             bottom: 0;
-            width: 130px;
-            height: 55px;
-            background-color: var(--bizcocho);
-            border-radius: 12px 12px 0 0;
-            left: 5px;
-            box-shadow: inset 0 6px 0 #e76f51;
+            width: 160px;
+            height: 60px;
+            background: #f4a261;
+            border-radius: 50% / 20px;
+            box-shadow: 0 8px 0 #e76f51, 0 15px 20px rgba(0,0,0,0.1);
         }
 
-        .crema-goteo {
+        .capa-crema {
             position: absolute;
-            width: 100%;
-            height: 12px;
-            background: var(--crema-pastel);
-            border-radius: 0 0 6px 6px;
-            top: 0;
+            bottom: 20px;
+            width: 160px;
+            height: 50px;
+            background: #fff3e0;
+            border-radius: 50% / 20px;
+            border-bottom: 4px solid #f1c40f;
         }
 
-        .vela {
+        .top-crema {
             position: absolute;
-            bottom: 55px;
-            left: 66px;
+            bottom: 45px;
+            width: 160px;
+            height: 40px;
+            background: #ffffff;
+            border-radius: 50% / 20px;
+        }
+
+        /* Chispas de colores en la torta */
+        .chispa {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+        }
+
+        /* Vela y flama realista */
+        .vela-magica {
+            position: absolute;
+            bottom: 65px;
+            left: 76px;
             width: 8px;
-            height: 25px;
-            background: linear-gradient(to right, #70d6ff, #ff758f);
-            border-radius: 3px 3px 0 0;
+            height: 35px;
+            background: linear-gradient(to top, #06d6a0, #70d6ff);
+            border-radius: 4px;
         }
 
-        .flama {
+        .flama-viva {
             position: absolute;
-            bottom: 80px;
-            left: 66px;
-            width: 8px;
-            height: 12px;
-            background-color: #ffb703;
+            bottom: 98px;
+            left: 73px;
+            width: 14px;
+            height: 22px;
+            background: radial-gradient(circle at bottom, #ffb703 20%, #ff5500 90%);
             border-radius: 50% 50% 20% 20%;
-            box-shadow: 0 0 12px #ffb703, 0 0 20px #fb8500;
-            animation: parpadeo 0.5s ease-in-out infinite alternate;
+            box-shadow: 0 0 15px #ffb703, 0 0 25px #ff5500;
+            animation: fuego 0.4s infinite alternate ease-in-out;
+            transform-origin: bottom center;
         }
 
-        @keyframes parpadeo {
-            0% { transform: scale(1) rotate(-2deg); }
-            100% { transform: scale(1.15) translateY(-2px) rotate(2deg); background-color: #fb8500; }
+        @keyframes fuego {
+            0% { transform: scale(1) rotate(-3deg); }
+            100% { transform: scale(1.1) rotate(3deg); }
         }
 
-        /* --- BOTÓN --- */
-        .boton {
-            background-color: var(--rosa-principal);
+        /* --- BOTÓN ELÁSTICO DE ACCIÓN --- */
+        .boton-magico {
+            background: linear-gradient(135deg, var(--rosa-brillante) 0%, #ff758f 100%);
             color: white;
             border: none;
-            padding: 14px 30px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 30px;
+            padding: 16px 36px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 8px 20px rgba(255, 117, 143, 0.4);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(255, 77, 109, 0.4);
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
             outline: none;
         }
 
-        .boton:hover {
-            background-color: #ff4d6d;
-            transform: translateY(-2px);
+        .boton-magico:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(255, 77, 109, 0.6);
         }
 
-        /* --- CARTA OCULTA Y BAILARINES --- */
-        .carta-oculta {
+        .boton-magico:active {
+            transform: translateY(1px);
+        }
+
+        /* --- CARTA REVELADA --- */
+        .carta-sorpresa {
             opacity: 0;
             max-height: 0;
             overflow: hidden;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            margin-top: 20px;
-            background: #fff5f6;
-            border-radius: 16px;
-            border: 1px dashed var(--rosa-suave);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 25px;
+            background: linear-gradient(to bottom, #ffffff, #fff5f6);
+            border-radius: 20px;
+            border: 2px dashed var(--rosa-neon);
         }
 
-        .carta-oculta.mostrar {
+        .carta-sorpresa.abrir {
             opacity: 1;
-            max-height: 600px;
-            padding: 20px 15px;
+            max-height: 800px;
+            padding: 25px 20px;
         }
 
-        .carta-oculta p {
-            font-style: italic;
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: #555;
-            margin-bottom: 15px;
+        .carta-sorpresa p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4f4f4f;
+            margin: 0 0 20px 0;
+            font-weight: 500;
         }
 
-        /* Zona de los GIFs animados */
-        .dance-floor {
+        /* --- PISTA DE BAILE DE CAPIBARAS Y OSOS --- */
+        .pista-baile {
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
+            align-items: center;
             gap: 10px;
-            margin-top: 15px;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
         }
 
-        .dance-floor img {
-            width: 90px;
-            height: 90px;
+        .pista-baile img {
+            width: 85px;
+            height: 85px;
             object-fit: contain;
-            border-radius: 10px;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+            animation: saltito 0.6s infinite alternate ease-in-out;
         }
 
-        /* --- GLOBOS Y CONFETI --- */
-        .confeti {
+        .pista-baile img:nth-child(2) {
+            width: 95px;
+            height: 95px;
+            animation-delay: 0.2s;
+        }
+
+        .pista-baile img:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes saltito {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-8px); }
+        }
+
+        /* --- GLOBOS Y CONFETI ANIMADOS --- */
+        .globo-fantastico {
             position: absolute;
-            width: 8px;
-            height: 8px;
-            animation: caer linear forwards;
-            z-index: 1;
-        }
-
-        @keyframes caer {
-            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
-        }
-
-        .globo {
-            position: absolute;
-            width: 30px;
-            height: 40px;
+            width: 40px;
+            height: 52px;
             border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
-            animation: flotar vertical linear infinite;
-            bottom: -50px;
-            opacity: 0.6;
+            animation: subirGlobo linear infinite;
+            bottom: -70px;
+            z-index: 5;
+            box-shadow: inset -5px -5px 10px rgba(0,0,0,0.15);
+        }
+
+        .globo-fantastico::after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 17px;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-bottom: 6px solid rgba(0,0,0,0.2);
+        }
+
+        @keyframes subirGlobo {
+            0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.9; }
+            50% { transform: translateY(-60vh) translateX(20px) rotate(5deg); }
+            100% { transform: translateY(-130vh) translateX(-10px) rotate(-5deg); opacity: 0; }
+        }
+
+        .trozo-confeti {
+            position: absolute;
+            width: 9px;
+            height: 9px;
+            animation: lluviaConfeti linear forwards;
             z-index: 2;
         }
 
-        @keyframes flotar {
-            0% { transform: translateY(0); opacity: 0.7; }
-            100% { transform: translateY(-120vh); opacity: 0; }
+        @keyframes lluviaConfeti {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
         }
-
-        #reproductor { display: none; }
     </style>
 </head>
 <body>
 
-    <!-- REPRODUCTOR CON "24K MAGIC" DE BRUNO MARS -->
-    <iframe id="reproductor" src="https://www.youtube.com/embed/UqyT8IEBkvY?enablejsapi=1" allow="autoplay"></iframe>
+    <audio id="musicaFondo" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+    </audio>
 
     <div class="tarjeta">
         <h1>¡Feliz Cumpleaños! 🎉</h1>
         <div class="dedicado">✨ Para: Lizz ✨</div>
 
-        <!-- Pastel -->
-        <div class="pastel-contenedor">
-            <div class="flama"></div>
-            <div class="vela"></div>
-            <div class="piso-pastel">
-                <div class="crema-goteo"></div>
+        <div class="pastel-3d">
+            <div class="flama-viva"></div>
+            <div class="vela-magica"></div>
+            <div class="base-pastel"></div>
+            <div class="capa-crema"></div>
+            <div class="top-crema">
+                <div class="chispa" style="background:#ff4d6d; top:15px; left:30px;"></div>
+                <div class="chispa" style="background:#70d6ff; top:10px; left:70px;"></div>
+                <div class="chispa" style="background:#06d6a0; top:18px; left:110px;"></div>
+                <div class="chispa" style="background:#ffca3a; top:8px; left:130px;"></div>
             </div>
         </div>
         
-        <button class="boton" id="btnSorpresa">¡Haz clic aquí, Lizz! 💌</button>
+        <button class="boton-magico" id="btnSorpresa">¡Haz clic aquí, Lizz! 💌</button>
 
-        <!-- Mensaje Sorpresa -->
-        <div class="carta-oculta" id="mensajeSecreto">
-            <p>"¡Feliz cumpleaños, Lizz! Que este nuevo año de vida venga cargado de muchísima felicidad, éxitos y momentos increíbles. Eres una amiga espectacular y te mereces lo mejor del mundo hoy y siempre. ¡A celebrar en grande con Bruno Mars! Te quiero un montón." ❤️🎂</p>
+        <div class="carta-sorpresa" id="mensajeSecreto">
+            <p>"¡Feliz cumpleaños, Lizz! Que este nuevo año de vida venga cargado de muchísima felicidad, éxitos y momentos increíbles. Eres una amiga espectacular y te mereces lo mejor del mundo hoy y siempre. ¡A celebrar en grande con ritmo! Te quiero un montón." ❤️🎂</p>
             
-            <!-- ¡Aquí aparecen los bailarines estrella cuando abre la carta! -->
-            <div class="dance-floor">
-                <!-- Ositos bailando -->
-                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIyeG5tMXZndjNndmoxZnd5eXpzcW90bXp6Z3ZhcW5wZnF6Y2h4ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/du3J3cXyzhj75IOgvA/giphy.gif" alt="Ositos bailando">
-                <!-- Capibara fiestero -->
-                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbms5NzRndWpydGpscmw3ZzZwdXl0am1wczhuY29oOTZ6eW85Nml3cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/S60bU6b0T2gB2xP9w6/giphy.gif" alt="Capibara">
-                <!-- Osito bailando pop -->
-                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZhcXhhaGNwYW5hbG9wM20waThnNmx0cWc1cGttdmR2b3lyNnYwMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/13CoXDiaCcC9Ak/giphy.gif" alt="Osito pop">
+            <div class="pista-baile">
+                <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZhcXhhaGNwYW5hbG9wM20waThnNmx0cWc1cGttdmR2b3lyNnYwMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/13CoXDiaCcC9Ak/giphy.gif" alt="Osito bailando">
+                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMms2N3B4cmh6MXN5ZDRxZXZibDFpM3FwYms4Z3p6am9oYThwazl0eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Wp09SgX59U7S9vI87D/giphy.gif" alt="Capibara fiestero">
+                <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbms5NzRndWpydGpscmw3ZzZwdXl0am1wczhuY29oOTZ6eW85Nml3cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/S60bU6b0T2gB2xP9w6/giphy.gif" alt="Oso fiestero">
             </div>
         </div>
     </div>
@@ -244,57 +330,82 @@
     <script>
         const boton = document.getElementById('btnSorpresa');
         const mensaje = document.getElementById('mensajeSecreto');
-        const musica = document.getElementById('reproductor');
+        const audio = document.getElementById('musicaFondo');
 
+        // Generar partículas mágicas flotando en el fondo automáticamente
+        function crearParticulasFondo() {
+            for (let i = 0; i < 20; i++) {
+                const p = document.createElement('div');
+                p.classList.add('particula');
+                p.style.left = Math.random() * 100 + 'vw';
+                const tam = Math.random() * 6 + 4;
+                p.style.width = tam + 'px';
+                p.style.height = tam + 'px';
+                p.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(p);
+            }
+        }
+        crearParticulasFondo();
+
+        // Acción al presionar el botón de la sorpresa
         boton.addEventListener('click', () => {
-            mensaje.classList.toggle('mostrar');
+            mensaje.classList.toggle('abrir');
 
-            if (mensaje.classList.contains('mostrar')) {
+            if (mensaje.classList.contains('abrir')) {
                 boton.textContent = '¡A celebrar, Lizz! 🕺✨';
-                crearConfeti();
-                crearGlobos();
-                musica.src += "&autoplay=1";
+                lanzarConfetiExplotando();
+                bucleGlobos();
+                
+                // Reproduce el MP3 al instante y sin anuncios
+                audio.play().catch(error => console.log("Interacción requerida para audio"));
             } else {
                 boton.textContent = '¡Haz clic aquí, Lizz! 💌';
+                audio.pause();
             }
         });
 
-        function crearConfeti() {
-            const colores = ['#ff758f', '#ffb3c1', '#70d6ff', '#ffd166', '#1dd1a1'];
-            for (let i = 0; i < 80; i++) {
-                const confeti = document.createElement('div');
-                confeti.classList.add('confeti');
-                confeti.style.left = Math.random() * 100 + 'vw';
-                confeti.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
+        // Lluvia masiva de confeti de colores
+        function lanzarConfetiExplotando() {
+            const colores = ['#ff4d6d', '#ff758f', '#70d6ff', '#ffd166', '#06d6a0', '#9b59b6'];
+            for (let i = 0; i < 100; i++) {
+                const c = document.createElement('div');
+                c.classList.add('trozo-confeti');
+                c.style.left = Math.random() * 100 + 'vw';
+                c.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
                 
                 const tamano = Math.random() * 8 + 6;
-                confeti.style.width = `${tamano}px`;
-                confeti.style.height = `${tamano}px`;
-                if(Math.random() > 0.4) confeti.style.borderRadius = '50%';
+                c.style.width = `${tamano}px`;
+                c.style.height = `${tamano}px`;
+                if(Math.random() > 0.4) c.style.borderRadius = '50%';
                 
-                const duracion = Math.random() * 2.5 + 2;
-                confeti.style.animationDuration = `${duracion}s`;
+                const duracion = Math.random() * 2 + 2;
+                c.style.animationDuration = `${duracion}s`;
+                c.style.animationDelay = `${Math.random() * 0.5}s`;
                 
-                document.body.appendChild(confeti);
-                setTimeout(() => confeti.remove(), duracion * 1000);
+                document.body.appendChild(c);
+                setTimeout(() => c.remove(), (duracion + 1) * 1000);
             }
         }
 
-        function crearGlobos() {
-            const colores = ['#ffccd5', '#70d6ff', '#ffca3a', '#8ac926', '#ff595e'];
-            for (let i = 0; i < 15; i++) {
-                const globo = document.createElement('div');
-                globo.classList.add('globo');
-                globo.style.left = Math.random() * 90 + 'vw';
-                globo.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
+        // Generador continuo de globos flotando hacia arriba
+        function bucleGlobos() {
+            const coloresGlobos = ['#ffadad', '#ffd6a5', '#fdffb6', '#caffbf', '#9bf6ff', '#a0c4ff', '#ffc6ff'];
+            let intervalo = setInterval(() => {
+                if (!mensaje.classList.contains('abrir')) {
+                    clearInterval(intervalo);
+                    return;
+                }
+                const g = document.createElement('div');
+                g.classList.add('globo-fantastico');
+                g.style.left = Math.random() * 90 + 'vw';
+                g.style.backgroundColor = coloresGlobos[Math.floor(Math.random() * coloresGlobos.length)];
                 
                 const duracion = Math.random() * 4 + 4;
-                globo.style.animationDuration = `${duracion}s`;
-                globo.style.animationDelay = `${Math.random() * 2}s`;
+                g.style.animationDuration = `${duracion}s`;
                 
-                document.body.appendChild(globo);
-                setTimeout(() => globo.remove(), (duracion + 2) * 1000);
-            }
+                document.body.appendChild(g);
+                setTimeout(() => g.remove(), (duracion + 1) * 1000);
+            }, 400);
         }
     </script>
 </body>
